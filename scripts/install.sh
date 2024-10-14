@@ -12,10 +12,6 @@ fi
 
 echo "Installing dependencies..."
 brew install zsh fzf zoxide nvm pnpm jq lazygit tmux neovim
-brew install --cask font-jetbrains-mono-nerd-font
-
-read -p "Install  alacritty? (y/n) " choice
-[[ "$choice" == "y" ]] && brew install --cask alacritty
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Installing Oh My Zsh..."
@@ -32,8 +28,8 @@ else
 fi
 
 echo "Installing Zsh plugins..."
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting &>/dev/null
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions &>/dev/null
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 echo "Binding .zshrc, .tmux.conf"
 cp ~/.zshrc ~/.zshrc.bak.$(date +"%Y-%m-%d_%H-%M-%S")
