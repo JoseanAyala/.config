@@ -35,5 +35,11 @@ echo "Installing Zsh plugins..."
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting &>/dev/null
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions &>/dev/null
 
+echo "Binding .zshrc, .tmux.conf"
+cp ~/.zshrc ~/.zshrc.bak.$(date +"%Y-%m-%d_%H-%M-%S")
+cp ~/.tmux.conf ~/.tmux.conf.bak.$(date +"%Y-%m-%d_%H-%M-%S")
+ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
+ln -sf ~/.config/dotfiles/.tmux.conf ~/.tmux.conf
+
 echo "Installation complete!"
-echo "run source ~/.config/dotfiles/.zshrc"
+echo "run source ~/.zshrc"
